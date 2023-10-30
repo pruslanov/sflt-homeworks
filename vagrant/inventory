@@ -1,0 +1,4 @@
+[webservers]
+srv1 ansible_host=10.20.8.106
+srv2 ansible_host=10.20.8.107
+srv3 ansible_host=10.20.8.108
