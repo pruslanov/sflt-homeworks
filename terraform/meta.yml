@@ -1,0 +1,9 @@
+ #cloud-config
+ 
+ users:
+  - name: ruslanov
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9TodpYaxBpRttDP/pe0gQaUWJlsBxqgz/OvLjfBd+XPmX4MMHfj7mV5Ch+dfSpRWNpCMX7wyLRH3dMuhntd/RDSTUyFoUsgMmdLhYOUbE+qG1uadLwLQgVluLDBMCWxNIXtKqXhANYLEbi8CGbt04AHv3+MjLi0X9gbszbyl2cxFdCOBMBN95TXjnyVwrctY7oIz2LuQ0eWs1ZzlnblranBO5MTSMjEA4Aqbd0rkdBU+tnWbEeLp7iVRbTXXJv3mvMRkgKO0MjvTAppY4RwbY4k9vxB2jx9PhXuQHTC8obtxXqwyQ7pMM3KLB68MHyFTHnEvlYwvxuI5F3K1PG4yz9yR2Z6hS51rB2/olEaTqPA/TjqD4jDfiZEoLzUlxiKQHP7a9zaPzVo76kErCVZeInPPKla1c0IrBxygNNgvHggb7WIiwfmdSt/2/Zxf0Y7C782i5Ee9nj+reaOW8vuUnP0HUW+yWZ5Qt9kQq+ZazbeVjz1YycT/peazdQHoSTTs= ruslanov@vm10816

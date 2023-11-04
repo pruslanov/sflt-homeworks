@@ -1,0 +1,51 @@
+---
+- name: "Install packages"
+  hosts: yandex_cloud
+  become: true
+  gather_facts: false
+  tags: main
+  tasks:
+  
+  - name: "Ensure that required packages installed"
+    yum:
+      name:
+        - vim
+        - mc
+        - epel-release
+        - ca-certificates
+      state: present
+
+- name: "Install package nginx on one server"
+  hosts: yandex_cloud
+  become: true
+  gather_facts: true
+  tags:
+    - nginx
+  tasks:
+
+  - name: "Ensure that nginx packages installed"
+    yum:
+      name:
+        - nginx
+      state: present
+
+  - name: "Staring nginx"
+    service:
+      name: nginx
+      state: restarted
+      enabled: yes
+
+  - name: "Wait for port 80"
+    wait_for:
+      port: 80
+      delay: 5
+
+  - name: "Show current IP"
+    debug:
+      msg: "http://{{ ansible_facts.all_ipv4_addresses[0] }}:80"
+  
+  - name: "Test using IRI module"
+    uri:
+      url: "http://{{ ansible_facts.all_ipv4_addresses[0] }}:80"
+      status_code: 200
+...
